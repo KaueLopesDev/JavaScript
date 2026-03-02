@@ -7,24 +7,28 @@ function contar() {
     var n2 = Number(txtn2.value)
     var n3 = Number(txtn3.value)
 
-    if (n1 == 0 && n2 == 0) {
-        alert('[ERROR] Impossivel contar!!!')
-    } else if (n3 <= 0){
-        alert('[ERROR] Passo Receberá 1')
-        n3 = 1
-        res.innerHTML = `Contando: `
-
-        if (n1 <= n2) {
-            for (var c = n1; c <= n2 ; c+=n3){
-                res.innerHTML += `${c}... ` 
-            }
-        } else if (n1 > n2){
-            for (var c = n1 ; c >= n2; c-=n3) {
-              res.innerHTML += `${c}...`
+     if (txtn1.value.length == 0 || txtn2.value.length == 0 ){
+        alert('[ERROR] faltam dados')
+        res.innerHTML = `Impossivel contar`
+     } else {
+        if (n3 <= 0) {
+            alert('[ERROR] Passo invalido CONSIDERANDO PASSO 1')     
+            n3 = 1
+        }
+        res.innerHTML = 'Contando: <br>'
+         if (n1 < n2) {
+            for(var c = n1; c <= n2; c+=n3) {
+                res.innerHTML += `${c}\u{1F449}`
             }
         } else {
-            res.innerHTML = 'Contagem INVALIDA'
+            for(var c = n1; c >= n2; c-=n3){
+                res.innerHTML += `${c}\u{1F449}`
+            }
         }
-    }
+       
+        res.innerHTML += `\u{1F3C1}`
+     }
 
+     
+  
 }
